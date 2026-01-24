@@ -10,7 +10,7 @@ export const ProjectData = [
         title: "Portfolio Website",
         description: "A personal portfolio website featuring a modern, responsive and visually engaging layout, smooth navigation, and organized sections to present projects, experience, skills and contact information in a clear and professional manner.",
         tools: ["React", "Tailwind", "CSS", "Typescript"],
-        link: "<https://your-portfolio-link.com>",
+        link: "https://github.com/anandramaswami/My-Portfolio",
     },
     {
         image: EcommProjectImg,

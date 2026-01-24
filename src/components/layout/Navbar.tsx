@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+
+/* ================== ANIMATIONS (UNCHANGED) ================== */
 
 const navbarVariants = {
     hidden: { opacity: 0, y: 60 },
@@ -40,9 +42,22 @@ const mobileMenuVariants = {
     },
 };
 
+/* ================== COMPONENT ================== */
+
 function Navbar() {
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    /* ===== SCROLL BEHAVIOR (from Antigravity idea) ===== */
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const navItems = [
         { label: "Home", path: "/" },
@@ -63,15 +78,14 @@ function Navbar() {
             variants={navbarVariants}
             initial="hidden"
             animate="visible"
-            className="
-                fixed top-0 left-0
-                w-full h-18
-                bg-[#181824]
-                shadow-[0_4px_10px_-4px_rgba(255,255,255,0.7)]
-                text-white
-                z-50
+            className={`
+                fixed top-0 left-0 w-full z-50 text-white
+                transition-all duration-300
+                ${isScrolled
+                    ? "backdrop-blur-md bg-[#181824]/80 h-16 shadow-lg"
+                    : "bg-[#181824] h-20 shadow-[0_4px_10px_-4px_rgba(255,255,255,0.7)]"}
                 px-4 sm:px-8
-            "
+            `}
         >
             <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
 
@@ -91,7 +105,7 @@ function Navbar() {
                             variants={itemVariants}
                             onClick={() => navigate(item.path)}
                             className="
-                                relative hover:text-purple-700
+                                relative hover:text-purple-700 transition-colors
                                 before:content-['']
                                 before:absolute before:top-full before:left-0
                                 before:w-0 before:h-0.5
@@ -124,7 +138,7 @@ function Navbar() {
                         exit="exit"
                         className="
                             md:hidden
-                            bg-[#181824]
+                            backdrop-blur-md bg-[#181824]/90
                             border-t border-purple-700/40
                             shadow-[0_8px_20px_-10px_rgba(255,255,255,0.6)]
                         "
