@@ -1,0 +1,244 @@
+@import 'tailwindcss';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* ================================================= */
+/* 🌑 GLOBAL APP BACKGROUND (FIX WHITE FLASH) */
+/* ================================================= */
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    /* SAME background as Intro */
+    background: linear-gradient(to bottom right,
+            #000000,
+            #18181b,
+            #000000);
+}
+
+html,
+body,
+#root,
+*,
+*::before,
+*::after {
+    cursor: none !important;
+}
+
+/* Prevent horizontal flicker during animations */
+body {
+    overflow-x: hidden;
+    cursor: none
+}
+
+/* ================================================= */
+/* 🔥 GLOBAL ANIMATED COLOR SOURCE (SINGLE SOURCE) */
+/* ================================================= */
+
+:root {
+    --glow-color: #7e22ce;
+    --glow-color-dark: color-mix(in srgb, var(--glow-color) 55%, black);
+    animation: glowColorCycle 30s ease-in-out infinite;
+}
+
+
+/* ================================================= */
+/* 🎨 VIBRANT COLOR CYCLE */
+/* ================================================= */
+@keyframes glowColorCycle {
+    0% {
+        --glow-color: #7e22ce;
+        /* Purple */
+    }
+
+    15% {
+        --glow-color: #6366f1;
+        /* Indigo */
+    }
+
+    30% {
+        --glow-color: #3b82f6;
+        /* Blue */
+    }
+
+    70% {
+        --glow-color: #ec4899;
+        /* Pink */
+    }
+
+    85% {
+        --glow-color: #c026d3;
+        /* Magenta */
+    }
+
+    100% {
+        --glow-color: #7e22ce;
+        /* Back to Purple */
+    }
+}
+
+/* ================================================= */
+/* 🟣 SYNC TAILWIND PURPLE-700 */
+/* ================================================= */
+.bg-purple-700 {
+    background-color: var(--glow-color) !important;
+}
+
+.text-purple-700 {
+    color: var(--glow-color) !important;
+}
+
+.border-purple-700 {
+    border-color: var(--glow-color) !important;
+}
+
+.border-b-purple-700 {
+    border-color: var(--glow-color) !important;
+}
+
+
+.bg-purple-700\/40 {
+    background-color: var(--glow-color) !important;
+}
+
+/* Shadow helper */
+.border-white {
+    box-shadow: 0 0 12px 1px var(--glow-color);
+}
+
+/* Hover variants */
+.hover\:bg-purple-700:hover {
+    background-color: var(--glow-color) !important;
+}
+
+.hover\:text-purple-700:hover {
+    color: var(--glow-color) !important;
+}
+
+.hover\:border-purple-700:hover {
+    border-color: var(--glow-color) !important;
+}
+
+.focus\:border-purple-700:focus {
+    border-color: var(--glow-color) !important;
+}
+
+/* ================================================= */
+/* 🧭 NAVBAR SAFE OVERRIDES */
+/* ================================================= */
+header h1.text-purple-700 {
+    color: var(--glow-color) !important;
+}
+
+header nav button {
+    transition: color 0.3s ease-in-out;
+}
+
+header nav button::before {
+    background-color: var(--glow-color) !important;
+}
+
+/* ================================================= */
+/* 🌈 4-CORNER AMBIENT GLOW EFFECT */
+/* ================================================= */
+.animated-side-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ================================================= */
+/* 🦌 DEER CURSOR GLOW */
+/* ================================================= */
+.deer-cursor {
+    position: fixed;
+    width: 60px;
+    pointer-events: none;
+    z-index: 9999;
+
+    filter:
+        drop-shadow(0 0 15px var(--glow-color))
+        drop-shadow(0 0 20px var(--glow-color));
+
+    transition:
+        filter 0.4s ease,
+        transform 0.06s linear;
+}
+
+/* ================================================= */
+/* ✨ CURSOR PARTICLE */
+/* ================================================= */
+.cursor-particle {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+
+    background: var(--glow-color);
+
+    filter: blur(3px);
+    animation: particleFade 0.6s ease-out forwards;
+}
+
+/* Particle fade */
+@keyframes particleFade {
+    0% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Shared glow styles */
+.animated-side-glow::before,
+.animated-side-glow::after,
+.animated-side-glow .glow-top,
+.animated-side-glow .glow-bottom {
+    content: "";
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+
+    filter: blur(120px);
+    opacity: 0.9;
+
+    background: var(--glow-color);
+}
+
+/* Corners */
+.animated-side-glow::before {
+    top: -180px;
+    left: -180px;
+}
+
+.animated-side-glow::after {
+    top: -180px;
+    right: -180px;
+}
+
+.animated-side-glow .glow-top {
+    bottom: -180px;
+    left: -180px;
+}
+
+.animated-side-glow .glow-bottom {
+    bottom: -180px;
+    right: -180px;
+}
+
+/* Keep content above glow */
+.animated-side-glow>* {
+    position: relative;
+    z-index: 1;
+}
