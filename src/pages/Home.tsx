@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-import About from '../components/section/About'
-import Experience from '../components/section/Experience'
-import Hero from '../components/section/Hero'
-import Project from '../components/section/Project'
-import Service from '../components/section/Service'
-import Contact from '../components/section/Contact'
-
+import Hero from "../components/section/Hero";
+import About from "../components/section/About";
+import Experience from "../components/section/Experience";
+import Service from "../components/section/Service";
+import Project from "../components/section/Project";
+import Contact from "../components/section/Contact";
 
 function Home() {
     const heroRef = useRef<HTMLElement | null>(null);
@@ -30,11 +29,7 @@ function Home() {
         } as const;
 
         const section = sectionMap[location.pathname as keyof typeof sectionMap];
-        
-        section?.current?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        });
+        section?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, [location]);
 
     return (

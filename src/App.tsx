@@ -9,15 +9,20 @@ import DeerCursor from "./components/cursor/Cursor";
 function AnimatedRoutes() {
   const location = useLocation();
 
+  // Show navbar only if NOT on intro
+  const showNavbar = location.pathname !== "/intro";
+
   return (
     <>
-      {/* These stay mounted forever */}
+      {/* Cursor always active */}
       <DeerCursor />
-      <Navbar />
+
+      {/* Navbar conditionally */}
+      {showNavbar && <Navbar />}
 
       {/* Animate ONLY page content */}
       <AnimatePresence mode="wait">
-        <Routes location={location}>
+        <Routes location={location} key={location.pathname}>
           <Route path="/intro" element={<Intro />} />
 
           <Route
