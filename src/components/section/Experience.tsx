@@ -6,7 +6,7 @@ const sectionVariants = {
     hidden: {},
     visible: {
         transition: {
-            delayChildren: 0.5, // cards start after heading
+            delayChildren: 0.5, 
         },
     },
 };

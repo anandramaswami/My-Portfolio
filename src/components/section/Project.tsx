@@ -147,7 +147,7 @@ function Project() {
                                                 hover:underline
                                             "
                                         >
-                                            View Project
+                                            View Project Code
                                         </a>
                                     </div>
                                 </div>

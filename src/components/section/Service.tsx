@@ -1,55 +1,10 @@
 import { ServiceData } from "../datas/service";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Code, Layout, Smartphone } from "lucide-react";
-import {
-    faHtml5,
-    faCss3Alt,
-    faBootstrap,
-    faReact,
-    faJs,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-    faCode,
-    faServer,
-    faDatabase,
-    faTerminal,
-} from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import { FRONTEND_SKILLS, BACKEND_SKILLS, TOOLS_SKILLS } from "../datas/skills";
+import type { Skill } from "../datas/skills";
 
-/* ===================== SKILL TYPES ===================== */
-type Skill = {
-    name: string;
-    icon: any;
-    color: string;
-    level: number; // percentage
-};
 
-/* ===================== SKILL DATA ===================== */
-const FRONTEND_SKILLS: Skill[] = [
-    { name: "HTML", icon: faHtml5, color: "#E34F26", level: 95 },
-    { name: "CSS", icon: faCss3Alt, color: "#1572B6", level: 90 },
-    { name: "Bootstrap", icon: faBootstrap, color: "#7952B3", level: 80 },
-    { name: "TailwindCSS", icon: faCode, color: "#06B6D4", level: 85 },
-    { name: "JavaScript", icon: faJs, color: "#F7DF1E", level: 80 },
-    { name: "React", icon: faReact, color: "#61DAFB", level: 85 },
-    { name: "TypeScript", icon: faCode, color: "#3178C6", level: 75 },
-];
-
-const BACKEND_SKILLS: Skill[] = [
-    { name: "Python", icon: faCode, color: "#3776AB", level: 70 },
-    { name: "Django", icon: faServer, color: "#0C4B36", level: 75 },
-    { name: "Django REST", icon: faServer, color: "#0C4B36", level: 70 },
-    { name: "MySQL", icon: faDatabase, color: "#4479A1", level: 60 },
-];
-
-const TOOLS_SKILLS: Skill[] = [
-    { name: "VS Code", icon: faTerminal, color: "#007ACC", level: 90 },
-    { name: "Git & GitHub", icon: faCode, color: "#F05032", level: 80 },
-    { name: "GitHub Copilot", icon: faCode, color: "#6CC644", level: 80 },
-    { name: "Antigravity", icon: faTerminal, color: "#A855F7", level: 65 },
-];
-
-/* ===================== THERMOMETER BAR ===================== */
 const ThermometerBar = ({ value }: { value: number }) => (
     <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden mt-2">
         <motion.div
@@ -62,8 +17,9 @@ const ThermometerBar = ({ value }: { value: number }) => (
     </div>
 );
 
-/* ===================== COMPONENT ===================== */
+
 function Service() {
+    
     const serviceIcons = [Code, Layout, Smartphone];
 
     const rowVariants = {
@@ -89,7 +45,7 @@ function Service() {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 1.9, delay: 2.4 },
+            transition: { duration: 1.9, delay: 0.6 },
         },
     };
 
@@ -100,11 +56,15 @@ function Service() {
         >
             {skills.map((skill) => (
                 <div
-                    key={skill.name}   
+                    key={skill.name}
                     className="border border-white rounded-2xl p-4 flex flex-col gap-2"
                 >
                     <div className="flex items-center gap-3">
-                        <FontAwesomeIcon icon={skill.icon} style={{ color: skill.color }} />
+                        <img
+                            src={skill.icon}
+                            alt={skill.name}
+                            className="w-6 h-6 object-contain"
+                        />
                         <p className="text-sm sm:text-base font-semibold">
                             {skill.name}
                         </p>
@@ -170,7 +130,7 @@ function Service() {
                 </div>
             </motion.div>
 
-            {/* ================= SERVICES (UNCHANGED) ================= */}
+            {/* ================= SERVICES ================= */}
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
