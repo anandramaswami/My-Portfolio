@@ -2,6 +2,7 @@ import PortfolioProjectImg from '../../assets/images/portfolioproject.png';
 import WeatherProjectImg from '../../assets/images/WeatherProject.png';
 import EcommProjectImg from '../../assets/images/E-commProject.png';
 import SchoolProjectImg from '../../assets/images/SchoolProject.png';
+import FoodDeliveryImg from '../../assets/images/FoodDeliveryProject.png';
 
 
 export const ProjectData = [
@@ -12,6 +13,15 @@ export const ProjectData = [
         tools: ["React", "Tailwind", "CSS", "Typescript"],
         link: "https://github.com/anandramaswami/My-Portfolio",
     },
+
+    { 
+        image: FoodDeliveryImg,
+        title: "Food-Delivery App",
+        description: "A front-end–focused Food Delivery application that displays dynamic food items by category which allows users add meals to the cart and includes an integrated payment flow that redirects to an external payment app and returns to the platform after a successful transaction.",
+        tools: ["React", "TailwindCSS", "Typescript"],
+        link: "https://github.com/anandramaswami/Food-Delivery",
+    },
+
     {
         image: EcommProjectImg,
         title: "E-commerce Platform",
@@ -19,6 +29,7 @@ export const ProjectData = [
         tools: ["React", "Tailwind", "CSS", "Typescript", "RestAPI"],
         link: "https://github.com/anandramaswami/E-Commerce",  
     },
+
     {
         image: WeatherProjectImg,
         title: "Weather App",  
@@ -26,6 +37,7 @@ export const ProjectData = [
         tools: ["React", "Tailwind", "Typescript"],
         link: "https://github.com/anandramaswami/Weather-App",  
     },
+
     { 
         image: SchoolProjectImg,
         title: "School Fees-Management System",

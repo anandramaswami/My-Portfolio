@@ -42,5 +42,5 @@ export const TOOLS_SKILLS: Skill[] = [
     { name: "VS Code", icon: VSCodeImg, color: "#007ACC", level: 90 },
     { name: "Git & GitHub", icon: GitImg, color: "#F05032", level: 80 },
     { name: "GitHub Copilot", icon: CopilotImg, color: "#6CC644", level: 80 },
-    { name: "Antigravity", icon: AntigravityImg, color: "#A855F7", level: 65 },
+    { name: "Antigravity", icon: AntigravityImg, color: "#A855F7", level: 75 },
 ];

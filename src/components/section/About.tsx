@@ -128,7 +128,7 @@ function About() {
                     <motion.span
                         animate={{ scaleX: [0.6, 1, 0.6], opacity: [0.6, 1, 0.6] }}
                         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="h-0.75 w-80 rounded-full bg-white"
+                        className="h-0.75 w-60 rounded-full bg-white lg:w-80"
                     />
                 </motion.div>
 

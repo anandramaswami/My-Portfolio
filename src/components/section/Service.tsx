@@ -57,7 +57,7 @@ function Service() {
             {skills.map((skill) => (
                 <div
                     key={skill.name}
-                    className="border border-white rounded-2xl p-4 flex flex-col gap-2"
+                    className="border border-white rounded-2xl p-4 flex flex-col gap-2 hover:scale-105 hover:shadow-xl  hover:border-purple-500/40"
                 >
                     <div className="flex items-center gap-3">
                         <img
