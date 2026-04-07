@@ -2,7 +2,7 @@ import PortfolioProjectImg from '../../assets/images/portfolioproject.png';
 import WeatherProjectImg from '../../assets/images/WeatherProject.png';
 import EcommProjectImg from '../../assets/images/E-commProject.png';
 import SchoolProjectImg from '../../assets/images/SchoolProject.png';
-import FoodDeliveryImg from '../../assets/images/FoodDeliveryProject.png';
+import CarWashProjectImg from '../../assets/images/CarWash.png';
 
 
 export const ProjectData = [
@@ -15,11 +15,11 @@ export const ProjectData = [
     },
 
     { 
-        image: FoodDeliveryImg,
-        title: "Food-Delivery App",
-        description: "A front-end–focused Food Delivery application that displays dynamic food items by category which allows users add meals to the cart and includes an integrated payment flow that redirects to an external payment app and returns to the platform after a successful transaction.",
-        tools: ["React", "TailwindCSS", "Typescript"],
-        link: "https://github.com/anandramaswami/Food-Delivery",
+        image: CarWashProjectImg,
+        title: "Car-Wash Service",
+        description: "A full-stack web application developed using Django and Django REST Framework that allows customers to conveniently book car wash services online. The system enables users to register, select service types, schedule bookings, and manage their appointments.",
+        tools: ["Django", "RESTAPI"],
+        link: "https://github.com/anandramaswami/404-Carwash",
     },
 
     {

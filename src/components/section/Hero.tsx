@@ -72,8 +72,8 @@ function Hero() {
 
     const handleResumeDownload = () => {
         const link = document.createElement("a");
-        link.href = "/resume/ANAND-P-R-CV-R5.pdf";
-        link.download = "ANAND-P-R-CV-R5.pdf";
+        link.href = "/resume/ANAND_P_R_RESUME(1).pdf";
+        link.download = "ANAND_P_R_RESUME(1).pdf";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
