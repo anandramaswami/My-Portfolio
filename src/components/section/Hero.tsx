@@ -71,9 +71,12 @@ function Hero() {
     const navigate = useNavigate();
 
     const handleResumeDownload = () => {
+        const fileName = "ANAND_R7.pdf";
+        const fileUrl = `${import.meta.env.BASE_URL}resume/${fileName}`;
+
         const link = document.createElement("a");
-        link.href = "/resume/ANAND_P_R_RESUME(1).pdf";
-        link.download = "ANAND_P_R_RESUME(1).pdf";
+        link.href = fileUrl;
+        link.download = fileName;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
